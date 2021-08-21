@@ -18,21 +18,6 @@ exports.checkDuplicacy = (name) => {
   return movieModel.findOne({ Name: name });
 };
 
-exports.create = (userInfo) => {
-  return movieModel.create(userInfo);
-};
-
-exports.checkUser = (id) => {
-  return movieModel.findOne({ _id: id });
-};
-
-//checkExistMail
-exports.checkMailId = (emailInfo) => {
-  return movieModel.findOne({ email: emailInfo });
-};
-
-//checkuserDetails for Reset password
-
 exports.findYear = () => {
   return movieModel.aggregate([
     { $match: {} },
@@ -47,6 +32,7 @@ exports.findMovieOfaParticularYear = (Year, Name) => {
   return movieModel.find({ Year, Name });
 };
 
+<<<<<<< HEAD
 //finding user details for order
 exports.findUser = (userid) => {
   return movieModel.findOne({ _id: userid });
@@ -56,3 +42,5 @@ exports.findUser = (userid) => {
 exports.findLink = (movieName) => {
   return movieModel.findOne({ Name: movieName });
 };
+=======
+>>>>>>> 5097a15f614ebe1f8cbe48f471995b7e452d9960

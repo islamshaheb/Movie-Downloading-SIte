@@ -116,9 +116,7 @@ exports.createUser = async (ctx) => {
         message: `File size has to  be less than ${maxSize}kb `,
       };
     }
-
-    // saving products related informations onto the database
-
+    
     const information = {
       fullName,
       phoneNumber,
