@@ -14,6 +14,9 @@ const userSchema = new Schema({
 });
 const movieModel = mongoose.model('AllMovie', userSchema);
 
+exports.create = (movieInfo) => {
+  return movieModel.create(movieInfo);
+};
 exports.checkDuplicacy = (name) => {
   return movieModel.findOne({ Name: name });
 };
@@ -32,15 +35,7 @@ exports.findMovieOfaParticularYear = (Year, Name) => {
   return movieModel.find({ Year, Name });
 };
 
-<<<<<<< HEAD
-//finding user details for order
-exports.findUser = (userid) => {
-  return movieModel.findOne({ _id: userid });
-};
-
 //finding user details for order
 exports.findLink = (movieName) => {
   return movieModel.findOne({ Name: movieName });
 };
-=======
->>>>>>> 5097a15f614ebe1f8cbe48f471995b7e452d9960
