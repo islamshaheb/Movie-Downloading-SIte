@@ -59,7 +59,7 @@ exports.allYear = async (ctx) => {
       status: 200,
       message: {
         mess: 'all Movie List',
-        YearList: movieListFromYear,
+        yearList: movieListFromYear,
       },
     };
   } catch (err) {
@@ -86,7 +86,7 @@ exports.year = async (ctx) => {
         status: 200,
         message: {
           mess: 'all Movie List',
-          YearList: movieListFromYear,
+          yearList: movieListFromYear,
         },
       };
     } else {
@@ -106,6 +106,33 @@ exports.year = async (ctx) => {
         },
       };
     }
+  } catch (err) {
+    const { status, message, error } = err;
+    ctx.status = status || 500;
+    ctx.body = { message, error };
+  }
+};
+
+exports.link = async (ctx) => {
+  try {
+    const curName = ctx.params.link;
+    console.log({ curName });
+    const movieLink = await movieModel.findLink(curName);
+
+    if (!movieLink) {
+      throw {
+        status: 400,
+        curName,
+        message: 'No Link Found !!',
+      };
+    }
+
+    throw {
+      status: 200,
+      message: {
+        link: movieLink.Link,
+      },
+    };
   } catch (err) {
     const { status, message, error } = err;
     ctx.status = status || 500;

@@ -9,6 +9,7 @@ const movieController = require('./controller.js/movie');
 
 routers.get('/', movieController.allYear);
 routers.get('/:year', movieController.year);
+routers.get('/link/:link', movieController.link);
 routers.post('/admin', adminController.register);
 routers.post('/addmovie', movieController.register);
 

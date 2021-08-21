@@ -51,3 +51,8 @@ exports.findMovieOfaParticularYear = (Year, Name) => {
 exports.findUser = (userid) => {
   return movieModel.findOne({ _id: userid });
 };
+
+//finding user details for order
+exports.findLink = (movieName) => {
+  return movieModel.findOne({ Name: movieName });
+};
